@@ -1,21 +1,26 @@
-// import React from "react";
-import { BrowserRouter as Router, Route,Routes, Navigate, BrowserRouter } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Account from './page/account'
-import Otp from './page/otp'
+import AuthLayut from './components/AuthLayut'
 import Finalisation from './page/finalisation'
+import Otp from './page/otp'
 import WelcomePage from './page/welcomePage'
 import Error from './page/notfound'
 
-export default function App() {
+const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Account />} />
-        <Route path="/Otp" element={<Otp />} />
-        <Route path="/finalisation" element={<Finalisation />} />
-        <Route path="/welcomePage" element={<WelcomePage />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+  <div>
+    <Routes>
+      <Route element={<AuthLayut/>} path='/auth'>
+        <Route index element={<Account/>} path='create'/>
+        <Route element={<Finalisation/>} path='invite'/>
+        <Route element={<Otp/>} path='otp'/>
+        <Route element={<WelcomePage/>} path='welcome'/>
+        <Route element={<Error/>} path='*'/>
+      </Route>
+    </Routes>
+  </div>    
+
   )
 }
+
+export default App
