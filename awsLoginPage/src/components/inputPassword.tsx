@@ -36,6 +36,7 @@ const InputPassword: React.FC = () => {
         <PasswordInput
           onChange={handlePasswordChange}
           placeholder="Entrez votre mot de passe"
+          password=''
         />
 
       {/* Barre du password strength */}

@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 interface PasswordInputProps {
     onChange: (value: string) => void;
     placeholder?: string;
+    password?: string;
 }
 
-const PasswordInput: React.FC<PasswordInputProps> = ({ onChange, placeholder }) => {
+const PasswordInput: React.FC<PasswordInputProps> = ({ onChange, placeholder, password }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
@@ -16,6 +17,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ onChange, placeholder }) 
                     type={showPassword ? 'text' : 'password'}
                     onChange={(e) => onChange(e.target.value)}
                     placeholder={placeholder}
+                    value={password}
                     className="font-inter text-[1.2rem] w-full bg-[var(--bg-input)] font-[400] text-[var(--first-text-color)] outline-none rounded-[0.3rem] px-3 py-2"
                     required
                 />
